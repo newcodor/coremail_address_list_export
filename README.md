@@ -19,6 +19,12 @@ Usage of coremail_address_list_export:
         http://mail.xxx.com
 ```
 
+ Cookie.Coremail、 Cookie.Coremail.sid:
+
+
+
+![F12](img/F12.jpg)
+
 command line example:
 
 ```

@@ -24,7 +24,7 @@ chcp 65001 >nul
 
 @set outfilename=%output%_linux_amd64_%version%
 @echo build linux/amd64 …… %build_dir%/%outfilename%
-@set GOOS=linux&&set GOARCH=amd64&& go build -trimpath  -ldflags "-w -s" -buildmode=pie -o %build_dir%/%outfilename%  main.go
+@set GOOS=linux&&set GOARCH=amd64&& go build -trimpath  -ldflags "-w -s"  -o %build_dir%/%outfilename%  main.go
 
 @set outfilename=%output%_darwin_amd64_%version%
 @echo build darwin/amd64 …… %build_dir%/%outfilename%

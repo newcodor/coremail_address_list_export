@@ -18,7 +18,7 @@ var (
 	outpath    string = "email.txt"
 	outType    string = "xlsx"
 	timeout    int    = 1
-	proxy      string = "http://127.0.0.1:8080"
+	proxy      string = ""
 	sid        string
 	cookie     string
 	headers    map[string]string = map[string]string{
@@ -39,16 +39,16 @@ var (
 )
 
 type MailGroup struct {
-	Dn      string
-	AttrIds []string
+	Dn      string   `json:"dn"`
+	AttrIds []string `json:"attrIds"`
 }
 
-type MailReqData struct {
-	Dn                       string
-	ReturnAttrs              []string
-	Start                    int
-	Limit                    int
-	DefaultReturnMeetingRoom bool
+type MailListReqData struct {
+	Dn                       string   `json:"dn"`
+	ReturnAttrs              []string `json:"returnAttrs"`
+	Start                    int      `json:"start"`
+	Limit                    int      `json:"limit"`
+	DefaultReturnMeetingRoom bool     `json:"defaultReturnMeetingRoom"`
 }
 
 type MailListData struct {
@@ -82,7 +82,7 @@ func FetchMailDatas(id string) {
 	if id != "" {
 		dn = fmt.Sprintf("a/%s", id)
 	}
-	data := &MailReqData{
+	data := &MailListReqData{
 		Dn:                       dn,
 		ReturnAttrs:              []string{"true_name", "email", "mobile_number", "duty", "gender"},
 		Start:                    0,
@@ -90,13 +90,10 @@ func FetchMailDatas(id string) {
 		DefaultReturnMeetingRoom: false,
 	}
 	json_data, _ := json.Marshal(data)
-	post_data := strings.ToLower(string(json_data))
-	post_data = strings.Replace(post_data, "returnattrs", "returnAttrs", 1)
-	resp, err := commonutils.HttpPost(mailDataUrl, post_data, headers, timeout, httpClient)
+	resp, err := commonutils.HttpPost(mailDataUrl, string(json_data), headers, timeout, httpClient)
 	if err == nil {
 		respDatas := &MailList{}
-		err3 := json.Unmarshal([]byte(resp["respBody"]), &respDatas)
-		if err3 == nil {
+		if err3 := json.Unmarshal([]byte(resp["respBody"]), &respDatas); err3 == nil {
 			fmt.Printf("Total: %d\n", respDatas.Total)
 			if respDatas.Var != nil && len(respDatas.Var) > 0 {
 				for _, v := range respDatas.Var {
@@ -163,8 +160,7 @@ func main() {
 	resp, err := commonutils.HttpPost(mailGroupUrl, strings.ToLower(string(json_data)), headers, timeout, httpClient)
 	if err == nil {
 		respDatas := &MailGroupRespData{}
-		err3 := json.Unmarshal([]byte(resp["respBody"]), &respDatas)
-		if err3 == nil {
+		if err3 := json.Unmarshal([]byte(resp["respBody"]), &respDatas); err3 == nil {
 			fmt.Println(respDatas.Var.Name)
 			FetchMailDatas("")
 			if respDatas.Var.Ou != nil && len(respDatas.Var.Ou) > 0 {

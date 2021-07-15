@@ -16,12 +16,12 @@
   -sid string
         Cookie.Coremail.sid
   -t int
-        http request timeout (default 7)
+        超时时间 (默认7秒)
   -u string
         http://mail.xxx.com
 ```
 
- 其中需要两个如下Cookie中的参数,使用F12 开发者工具可以找到
+ 其中需要如下两个Cookie中的参数,使用F12 开发者工具可以找到
 
 Cookie.Coremail、 Cookie.Coremail.sid:
 

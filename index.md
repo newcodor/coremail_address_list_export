@@ -6,27 +6,19 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### 如何使用
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+-cookie string
+        Cookie.Coremail
+  -h    查看帮助选项
+  -oT string
+        输出文件格式,可选:txt,csv,xlsx (默认为 xlsx)
+  -proxy string
+        可代理格式如: http://ip:port, socks5://ip:port
+  -sid string
+        Cookie.Coremail.sid
+  -t int
+        超时时间 (默认7秒)
+  -u string
+        http://mail.xxx.com
 
 ### Jekyll Themes
 

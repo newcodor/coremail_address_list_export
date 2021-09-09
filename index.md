@@ -6,7 +6,8 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### 如何使用
 
--cookie string
+```
+  -cookie string
         Cookie.Coremail
   -h    查看帮助选项
   -oT string
@@ -19,6 +20,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
         超时时间 (默认7秒)
   -u string
         http://mail.xxx.com
+```
 
 ### Jekyll Themes
 

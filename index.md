@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## coremail address list export tool
 
-You can use the [editor on GitHub](https://github.com/newcodor/coremail_address_list_export/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+此工具用于导出coremail通讯录
 
 ### 如何使用
 
@@ -22,10 +20,14 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
         http://mail.xxx.com
 ```
 
-### Jekyll Themes
+### 命令使用
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/newcodor/coremail_address_list_export/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+ 其中需要两个Cookie中的参数,使用F12 开发者工具可以找到  Cookie.Coremail、 Cookie.Coremail.sid::
+
+```
+coremail_address_list_export -u https://mail.xxxx.com -sid BAAizbxxxxx  -cookie bb4c862xxxxxxxxxxxxx
+```
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+[@newcodor](https://github.com/newcodor/)
